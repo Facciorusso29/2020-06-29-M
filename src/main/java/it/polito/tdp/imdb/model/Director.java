@@ -1,10 +1,19 @@
 package it.polito.tdp.imdb.model;
 
-public class Director {
+public class Director implements Comparable<Director>{
 	Integer id;
 	String firstName;
 	String lastName;
+	double peso;
 	
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
 	public Director(Integer id, String firstName, String lastName) {
 		super();
 		this.id = id;
@@ -64,6 +73,12 @@ public class Director {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Director d) {
+		
+		return this.lastName.compareTo(d.lastName);
 	}
 	
 }
